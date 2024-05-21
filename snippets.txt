@@ -1,0 +1,16 @@
+Kokkos Build (make sure you're in the root of the Kokkos source directory):
+cmake -B $build_dir -S . -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_PREFIX="$CONDA_PREFIX" -D CMAKE_CXX_STANDARD=17 -D Kokkos_ENABLE_SERIAL=ON -D Kokkos_ARCH_NATIVE=ON -D Kokkos_ENABLE_TESTS=OFF -D BUILD_TESTING=OFF -D Kokkos_ENABLE_THREADS=ON -D BUILD_SHARED_LIBS=ON
+
+Matar Build:
+cmake -B $build_dir -S . -D CMAKE_INSTALL_PREFIX="$CONDA_PREFIX" -D CMAKE_PREFIX_PATH="$CONDA_PREFIX" -D Matar_ENABLE_KOKKOS=ON
+
+Jupyter Imports:
+#pragma cling add_library_path("/home/jovin/miniconda3/envs/xeus-cling/lib")
+#pragma cling load("libkokkoscore")
+
+#define HAVE_KOKKOS 1
+#define HAVE_THREADS 1
+
+#include "matar.h"
+
+using namespace mtr;
