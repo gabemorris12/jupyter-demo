@@ -1,0 +1,5 @@
+# Python Scripts Default Style
+axes.prop_cycle: cycler('color', ['000f7e', 'ffbf00', 'black', '3296dc', '7e3b00', 'dc6e32'])
+axes.grid: true
+
+savefig.dpi: 240
